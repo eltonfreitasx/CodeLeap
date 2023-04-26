@@ -13,6 +13,8 @@ interface PostProps {
 
 export function Home() {
   const [posts, setPosts] = useState<PostProps[]>([]);
+  const reversedPosts = [...posts].reverse();
+
   const [newPostTitle, setNewPostTitle] = useState("");
   const [newPostContent, setNewPostContent] = useState("");
 
@@ -72,6 +74,8 @@ export function Home() {
   const isNewCommentEmpty =
     newPostTitle.length === 0 || newPostContent.length === 0;
 
+    
+
   return (
     <main className={styles.main}>
       <div className={styles.codeLeap}>
@@ -107,7 +111,8 @@ export function Home() {
       </form>
 
       <Post
-        posts={posts}
+        isUsernameSaved
+        posts={reversedPosts}
         onDeletePost={deletePost}
         onEditPost={handleEditPost}
       />

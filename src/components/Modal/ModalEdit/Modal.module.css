@@ -20,62 +20,66 @@
   border-radius: 16px;
 }
 
-form span, form .label, form .inputTitle, form .areaContent {
-    z-index: 1;
+form span,
+form .label,
+form .inputTitle,
+form .areaContent {
+  z-index: 1;
 }
 
-
 .ModalEdit form {
-    padding: 0 0 0 24px;
+  padding: 0 0 0 24px;
 }
 
 .ModalEdit form span {
-    font-weight: 700;
-    font-size: 22px;
-    color: #000;
-    padding-bottom: 24px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #000;
+  padding-bottom: 24px;
 }
 
 .ModalEdit label {
-    padding: 0 0 8px 0;
-    font-weight: 400;
-    font-size: 16px;
+  padding: 0 0 8px 0;
+  font-weight: 400;
+  font-size: 16px;
 }
 
-.ModalEdit form input{
-    max-width: 612px;
-    height: 32px;
-    margin-bottom: 24px;
-    border: 1px solid var(--gray-600);
-    border-radius: 8px;
-}   
+.ModalEdit form input {
+  max-width: 612px;
+  height: 32px;
+  margin-bottom: 24px;
+  border: 1px solid var(--gray-600);
+  border-radius: 8px;
+}
+
+.ModalEdit form input {
+    padding: 0 0 0 8px;
+}
 
 .ModalEdit form input::placeholder {
-    padding: 0 0 0 8px;
-    font-size: 14px;
-   
+  font-size: 14px;
 }
 
 .ModalEdit form textarea {
-    max-width: 612px;
-    height: 74px;
-    border: 1px solid var(--gray-600);
-    border-radius: 8px;
+  max-width: 612px;
+  height: 74px;
+  border: 1px solid var(--gray-600);
+  border-radius: 8px;
+  padding: 8px 0 0 8px;
 }
 
 .ModalEdit form textarea::placeholder {
-    padding: 8px 0 0 8px;
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .ModalEdit form div button {
-    bottom: 0;
-    position: absolute;
+  bottom: 0;
+  position: absolute;
 }
 
 .ModalEdit form div button:first-child {
-    right: 170px;
-    bottom: 20px;
+  right: 170px;
+  bottom: 20px;
 }
 
 .ModalEdit form div button:last-child {

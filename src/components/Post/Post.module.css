@@ -42,9 +42,6 @@
     color: #fff;
 }
 
-.titlePost div button:last-child svg {
-}
-
 .nameAndDate {
     border: 1px solid var(--gray-400);
     border-radius: 0 0 18px 18px;

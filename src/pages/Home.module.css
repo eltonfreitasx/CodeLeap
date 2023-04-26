@@ -63,16 +63,16 @@ form label {
     color: #CCCCCC;
     font-size: 14px;
     font-weight: 400;
-    padding: 0 0 0 10.68px;
 }
 
 .inputTitle {
     height: 32px;
+    padding: 0 0 0 8px;
   }
 
 .areaContent {
     height: 74px;
-    padding: 8px 0 0 0;
+    padding: 7px 0 0 8px;
 }
 
 form div {
