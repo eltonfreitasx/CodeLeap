@@ -1,3 +1,4 @@
+import ModalUsername from "../components/Modal/ModalUsername";
 import { Post } from "../components/Post";
 import styles from "./Home.module.css";
 import { useState, FormEvent, useEffect } from "react";
@@ -14,6 +15,11 @@ export function Home() {
   const [posts, setPosts] = useState<PostProps[]>([]);
   const [newPostTitle, setNewPostTitle] = useState("");
   const [newPostContent, setNewPostContent] = useState("");
+
+
+  const [closeModalUserName, setCloseModalUserName] = useState(true);
+  const [selectedUsername, setSelectedUsername] = useState('');
+
 
   function deletePost(postToDelete: number) {
     const commentsWithouDeleteOne = posts.filter(
@@ -33,6 +39,10 @@ export function Home() {
     setPosts(updatedPosts);
   }
 
+  function handleSaveUsername(username: string) {
+    setSelectedUsername(username)
+  }
+
   useEffect(() => {
     const fetchApi = async () => {
       const url = "https://dev.codeleap.co.uk/careers/?format=json&offset=20";
@@ -49,7 +59,7 @@ export function Home() {
     const newPost: PostProps = {
       id: Date.now(),
       title: newPostTitle,
-      username: newPostTitle, //MUDAR PARA PEGAR O USER DO MODAL
+      username: selectedUsername, //MUDAR PARA PEGAR O USER DO MODAL
       content: newPostContent,
       created_datetime: new Date().toISOString(),
     };
@@ -101,6 +111,12 @@ export function Home() {
         onDeletePost={deletePost}
         onEditPost={handleEditPost}
       />
+
+          <ModalUsername
+          closeModalUserName={() => setCloseModalUserName(false)}
+          onSave={handleSaveUsername}
+          isOpen={closeModalUserName}
+        />
     </main>
   );
 }

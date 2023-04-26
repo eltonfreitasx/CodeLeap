@@ -10,8 +10,8 @@ interface PostProps {
 
 interface Props {
   posts: PostProps[];
-  onDeletePost: (postId: number) => void;
   isOpen: boolean;
+  onDeletePost: (postId: number) => void;
   setOpenModalDeleteClose: () => void
 }
 
