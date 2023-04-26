@@ -1,0 +1,84 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    width: 752px;
+    margin: 24px 0 24px 0;
+
+}
+
+ .titlePost {
+    border: var(--gray-400);
+    background: var(--blue);
+    width: 100%;
+    height: 80px;
+    padding: 24px;
+    border-radius: 16px 16px 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ .titlePost > h2 {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--white);
+}
+
+.titlePost div {
+    width: 5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titlePost div button {
+    background: var(--blue);
+    border: none;
+    cursor: pointer;
+}
+
+.titlePost div button svg {
+    color: #fff;
+}
+
+.titlePost div button:last-child svg {
+}
+
+.nameAndDate {
+    border: 1px solid var(--gray-400);
+    border-radius: 0 0 18px 18px;
+}
+
+.nameAndDate div span {
+    color: var(--gray-600);    
+}
+
+.nameAndDate div span strong {
+    font-weight: bold;
+}
+
+.nameAndDate div:first-child {
+    margin: 24px;
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nameAndDate div:first-child time {
+    color: var(--gray-600);
+    font-size: 18px;
+}
+
+.nameAndDate div:last-child {
+    margin: 24px;
+}
+
+.nameAndDate div:last-child p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+}
+
+
+

@@ -1,0 +1,44 @@
+:root {
+    --white: #fff;
+    --gray-50: #CCCCCC;
+    --gray-100: #DDDDDD;
+    --gray-300: #c4c4cc;
+    --gray-400: #999999;
+    --gray-600: #777777;
+    --gray-700: #29292e;
+    --gray-800: #202024;
+    --gray-900: #121214;
+  
+   --blue: #7695EC;
+   --red: #FF5151;
+   --green: #47B960;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :focus {
+    outline: transparent;
+    box-shadow:  0 0 0 2px var(--gray-100);
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  body,
+  input,
+  textarea,
+  button {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  

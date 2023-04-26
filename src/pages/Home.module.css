@@ -1,0 +1,99 @@
+
+.main {
+    width: 800px;
+    background: var(--white);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: var(--gray-400);
+    align-items: center;
+}
+
+.main > .codeLeap {
+    border: var(--gray-400);
+    background: var(--blue);
+    width: 100%;
+    height: 80px;
+    padding: 24px 0 24px 24px;
+}
+
+.main > .codeLeap > h2 {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--white);
+}
+
+ form {
+    width: 94%;
+    height: 334px;
+    border: 1px solid ;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0 0 24px;
+    border-radius: 8px;
+    margin: 24px 0 0 0;
+    border: 1px solid var(--gray-400);
+
+}
+
+form > strong {
+    font-size: 22px;
+    font-weight: 700;
+    padding: 0 0 26px 0;
+}
+
+form label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.label {
+    padding: 0 0 8px 0;
+}
+
+.inputTitle, .areaContent {
+    border-radius: 8px;
+    border: 1px solid var(--gray-600);
+    margin: 0 24px 26px 0;
+}
+
+.inputTitle::placeholder, .areaContent::placeholder {
+    color: #CCCCCC;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 0 0 10.68px;
+}
+
+.inputTitle {
+    height: 32px;
+  }
+
+.areaContent {
+    height: 74px;
+    padding: 8px 0 0 0;
+}
+
+form div {
+    display: flex;
+    justify-content: end;
+    margin-right: 24px;
+}
+
+form div button[type=submit] {
+    width: 120px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--blue);
+    font-weight: 700;
+    color: var(--white);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+form div button[type=submit]:disabled {
+    background: var(--gray-400);
+    cursor: not-allowed;
+}
