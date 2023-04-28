@@ -8,13 +8,26 @@
     z-index: '1000';
 }
 
+.UsernameModal .animation {
+    animation: modalAnimation 1s ease-in-out;
+}
+
+@keyframes modalAnimation {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 .UsernameModal div {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 205px;
+    width: 31.25rem;
+    height: 12.8rem;
     background: var(--white);
     border: 1px solid var(--gray-400);
     border-radius: 16px;
@@ -22,26 +35,47 @@
 
 .UsernameModal div span {
     color: #000;
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 700;
+    animation: modalAnimationSpan ease 3s;
 }
+
+@keyframes modalAnimationSpan {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 .UsernameModal div label {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
+    animation: modalAnimationLabelInput ease 5s;
 }
 
 .UsernameModal div input {
     border: 1px solid var(--gray-600);
     border-radius: 8px;
-    width: 452px;
-    height: 32px;
+    width: 28.25rem;
+    height: 2rem;
+    animation: modalAnimationLabelInput ease 5s;
 }
+
+@keyframes modalAnimationLabelInput {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 .UsernameModal div input[type=text] {
     color: #000;
     padding: 0 0 0 8px;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .UsernameModal div input[type=text]::placeholder {
@@ -56,18 +90,30 @@
     bottom: 24px;
     right: 24px;
     cursor: pointer;
+    animation: modalAnimationButton ease 7s;
 }
 
+@keyframes modalAnimationButton {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
 .UsernameModal div button[type=submit] {
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--white);
     font-weight: 700;
+    transition: 1s all;
 }
 
 
 .UsernameModal div button[type=submit]:disabled {
     cursor: not-allowed;
-    background-color: var(--gray-50);
+    background-color: var(--gray-300);
 }
 
 .UsernameModal div button[type=submit]::placeholder {
@@ -82,4 +128,30 @@
 .UsernameModal div label,
 .UsernameModal div input {
     margin: 8px 0 0 24px;
+}
+
+
+
+
+@media (max-width: 480px) {
+
+  .UsernameModal div {
+    width: 21.25rem;
+}
+
+.UsernameModal div span {
+  font-size: 1.2rem;
+  margin: 20px 0 10px 24px;
+}
+
+.UsernameModal div label {
+  padding-bottom: 150px;
+  font-weight: 400;
+}
+
+.UsernameModal div input[type=text] {
+  width: 17.9rem;
+  margin-top: 15px;
+}
+
 }

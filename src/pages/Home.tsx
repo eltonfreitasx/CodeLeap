@@ -9,6 +9,7 @@ interface PostProps {
   username: string;
   content: string;
   created_datetime: string;
+  isNewPost: boolean
 }
 
 export function Home() {
@@ -23,6 +24,7 @@ export function Home() {
   const [selectedUsername, setSelectedUsername] = useState('');
 
 
+
   function deletePost(postToDelete: number) {
     const commentsWithouDeleteOne = posts.filter(
       (post) => post.id !== postToDelete
@@ -30,30 +32,54 @@ export function Home() {
     setPosts(commentsWithouDeleteOne);
   }
 
-  function handleEditPost(postId: number, newContent: string) {
+  // function handleEditPost(postId: number, contentEdit: string, titleEdit: string) {
+  //   const updatedPosts = posts.map((post) => {
+  //     if (post.id === postId) {
+  //       return { ...post, content: contentEdit, title: titleEdit,  };
+  //     } else {
+  //       return post;
+  //     }
+  //   });
+  //   setPosts(updatedPosts);
+  // }
+
+  function handleEditPost(
+    postId: number,
+    contentEdit: string,
+    titleEdit: string
+  ) {
     const updatedPosts = posts.map((post) => {
       if (post.id === postId) {
-        return { ...post, content: newContent };
+        if (post.isNewPost) { // se for novo post, adiciona ao final do array
+          return { ...post, content: contentEdit, title: titleEdit, isNewPost: false };
+        } else { // se não for novo, atualiza normalmente
+          return { ...post, content: contentEdit, title: titleEdit };
+        }
       } else {
         return post;
       }
     });
     setPosts(updatedPosts);
   }
+  
 
   function handleSaveUsername(username: string) {
     setSelectedUsername(username)
   }
 
-  useEffect(() => {
-    const fetchApi = async () => {
-      const url = "https://dev.codeleap.co.uk/careers/?format=json&offset=20";
-      const response = await fetch(url);
-      const objJson = await response.json();
-      setPosts(objJson.results);
-    };
-    fetchApi();
-  }, []);
+   useEffect(() => {
+   const fetchApi = async () => {
+       const url = "https://dev.codeleap.co.uk/careers/?format=json";
+       const response = await fetch(url);
+       const objJson = await response.json();
+       setPosts(objJson.results);
+       console.log(objJson.results[0])
+     };
+     fetchApi();
+   }, []);
+
+
+
 
   function handleCreateNewPost(e: FormEvent) {
     e.preventDefault();
@@ -64,6 +90,7 @@ export function Home() {
       username: selectedUsername, //MUDAR PARA PEGAR O USER DO MODAL
       content: newPostContent,
       created_datetime: new Date().toISOString(),
+      isNewPost: true
     };
 
     setNewPostTitle("");
@@ -73,8 +100,6 @@ export function Home() {
 
   const isNewCommentEmpty =
     newPostTitle.length === 0 || newPostContent.length === 0;
-
-    
 
   return (
     <main className={styles.main}>
@@ -111,16 +136,17 @@ export function Home() {
       </form>
 
       <Post
-        isUsernameSaved
         posts={reversedPosts}
         onDeletePost={deletePost}
         onEditPost={handleEditPost}
+        userName={handleSaveUsername}
       />
 
           <ModalUsername
           closeModalUserName={() => setCloseModalUserName(false)}
           onSave={handleSaveUsername}
           isOpen={closeModalUserName}
+
         />
     </main>
   );

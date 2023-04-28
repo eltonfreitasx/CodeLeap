@@ -25,7 +25,7 @@ export default function ModalUsername({
 
     return (
       <div className={styles.UsernameModal}>
-        <div>
+        <div className={styles.animation}>
           <span>Welcome to CodeLeap network!</span>
 
           <label>Please enter your username</label>

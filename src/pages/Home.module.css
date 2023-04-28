@@ -1,32 +1,43 @@
 
 .main {
-    width: 800px;
+    min-width: 833px;
     background: var(--white);
     height: auto;
-    display: flex;
+    display: flex; align-items: center;
+    justify-content: center;
     flex-direction: column;
     border: var(--gray-400);
     align-items: center;
+    animation: modalAnimation 1s ease-in-out;
 }
+
+@keyframes modalAnimation {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 .main > .codeLeap {
     border: var(--gray-400);
     background: var(--blue);
     width: 100%;
-    height: 80px;
+    height: 5rem;
     padding: 24px 0 24px 24px;
 }
 
 .main > .codeLeap > h2 {
     font-family: Roboto, sans-serif;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 1.375rem;
     color: var(--white);
 }
 
  form {
     width: 94%;
-    height: 334px;
+    height: 21rem;
     border: 1px solid ;
     display: flex;
     flex-direction: column;
@@ -38,13 +49,13 @@
 }
 
 form > strong {
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 700;
     padding: 0 0 26px 0;
 }
 
 form label {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     color: #000000;
 }
@@ -61,17 +72,17 @@ form label {
 
 .inputTitle::placeholder, .areaContent::placeholder {
     color: #CCCCCC;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
 }
 
 .inputTitle {
-    height: 32px;
+    height: 2rem;
     padding: 0 0 0 8px;
   }
 
 .areaContent {
-    height: 74px;
+    height: 4.625rem;
     padding: 7px 0 0 8px;
 }
 
@@ -82,13 +93,13 @@ form div {
 }
 
 form div button[type=submit] {
-    width: 120px;
-    height: 32px;
+    width: 7.5rem;
+    height: 2rem;
     border-radius: 8px;
     background: var(--blue);
     font-weight: 700;
     color: var(--white);
-    font-size: 16px;
+    font-size: 1rem;
     border: none;
     cursor: pointer;
 }
@@ -96,4 +107,48 @@ form div button[type=submit] {
 form div button[type=submit]:disabled {
     background: var(--gray-400);
     cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .main {
+        min-width: 768px;
+    }
+
+    .codeLeap {
+        text-align: center;
+    } 
+}
+
+@media (max-width: 480px) {
+     .main {
+        min-width: 480px
+     }
+    .codeLeap {
+        text-align: center;
+    }    
+
+    form {
+        align-items: center;
+        width: 80%;
+        padding: 24px 0 0 0;
+    }
+
+    form input {
+        width: 11.3rem;
+    }
+
+    form strong {
+        font-size: 1rem;
+    }
+
+    form .inputTitle, .areaContent {
+       margin: 0 0px 26px 0
+    }
+
+    form .label {
+        margin-right: 10px;    }
+
+    button {
+        margin: 0 0 0 24px;
+    }
 }

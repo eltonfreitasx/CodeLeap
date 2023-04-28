@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import styles from "./Modal.module.css";
 
 interface PostProps {
@@ -13,7 +13,7 @@ interface Props {
   posts: PostProps[];
   isOpen: boolean;
   setOpenModalEdit: () => void;
-  onEditPost: (postId: number, newContent: string, newTitle: string) => void;
+  onEditPost: (postId: number, contentEdit: string, titleEdit: string) => void;
 }
 
 export function ModalEdit({
@@ -25,22 +25,26 @@ export function ModalEdit({
   const [newContent, setNewContent] = useState("");
   const [newTitle, setNewTitle] = useState("");
 
-  function handleSave() {
-    const postId = posts[0].id;
-    
-    onEditPost(postId, newContent, newTitle);
-    
+  function handleEditPost(e: FormEvent, postId: number, contentEdit: string, titleEdit: string) {
+    e.preventDefault()
 
-    setNewContent("");
-    setNewTitle("");
+    onEditPost(posts[0].id, contentEdit, titleEdit);
+     setNewContent(contentEdit)
+     setNewTitle(titleEdit)
+    onEditPost(posts[0].id,contentEdit, titleEdit);
+
     setOpenModalEdit();
+
+    console.log(posts[0].id,contentEdit, titleEdit)
   }
+
+
 
   if (isOpen) {
     return (
       <div className={styles.ModalEdit}>
         <div>
-          <form>
+          <form onSubmit={(e) => handleEditPost(e,posts[0].id, newContent, newTitle)}>
             <span>Edit item</span>
 
             <label className={styles.label}>Title</label>
@@ -62,10 +66,10 @@ export function ModalEdit({
             />
 
             <div className={styles.buttons}>
-              <button onClick={setOpenModalEdit} type="submit">
+              <button onClick={setOpenModalEdit} type="button">
                 Cancel
               </button>
-              <button onClick={handleSave} type="submit">
+              <button  type="submit">
                 Save
               </button>
             </div>
