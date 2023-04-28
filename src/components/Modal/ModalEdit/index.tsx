@@ -25,7 +25,7 @@ export function ModalEdit({
   const [newContent, setNewContent] = useState("");
   const [newTitle, setNewTitle] = useState("");
 
-  function handleEditPost(e: FormEvent, postId: number, contentEdit: string, titleEdit: string) {
+  function handleEditPost(e: FormEvent ,contentEdit: string, titleEdit: string) {
     e.preventDefault()
 
     onEditPost(posts[0].id, contentEdit, titleEdit);
@@ -44,7 +44,7 @@ export function ModalEdit({
     return (
       <div className={styles.ModalEdit}>
         <div>
-          <form onSubmit={(e) => handleEditPost(e,posts[0].id, newContent, newTitle)}>
+          <form onSubmit={(e) => handleEditPost(e, newContent, newTitle)}>
             <span>Edit item</span>
 
             <label className={styles.label}>Title</label>

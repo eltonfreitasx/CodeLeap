@@ -2,7 +2,7 @@ import { format, formatDistanceToNow } from "date-fns";
 import styles from "./Post.module.css";
 import { ArrowSquareOut, Trash } from "phosphor-react";
 import { enUS } from "date-fns/locale";
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import { ModalDelete } from "../Modal/ModalDelete";
 import { ModalEdit } from "../Modal/ModalEdit";
 
@@ -21,7 +21,7 @@ interface Props {
   userName: (userName: string) => void;
 }
 
-export function Post({ posts, onDeletePost, onEditPost, userName }: Props) {
+export function Post({ posts, onDeletePost, onEditPost }: Props) {
   const [editedContent, setEditedContent] = useState("");
   const [openModalEdit, setOpenModalEdit] = useState(false);
 
