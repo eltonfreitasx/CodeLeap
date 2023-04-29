@@ -1,7 +1,7 @@
 # CodeLeap
 
 ## 💻 Consumindo uma api de digimons. <hr/>
-### Este é um teste de condificação da CodeLeap. O objetivo é criar um aplicativo muito simples com execute funções de CRUD básicas. <br/>
+### Este é um teste de condificação da CodeLeap. O objetivo é criar um aplicativo muito simples que execute funções de CRUD básicas. <br/>
 #### É uma aplicativo front-end criado com React com Typescript com o sevidor de teste https://dev.codeleap.co.uk/careers<br/><br/>
 
 ### Preview <br/><hr/>
@@ -26,7 +26,7 @@ $ git clone https://github.com/eltonfreitasx/ApiDigimons.git
 
 $ npm install
 
-$ npm run dev<br/>
+$ npm run dev
 ```
 
 The application will open in the browser on http://localhost:5173/
